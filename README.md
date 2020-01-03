@@ -3,11 +3,43 @@
 # Installation
 
 ``` bash
-composer install
+$ git clone git@github.com:joelbeya/joel-beya-blog.git
 ```
 
 ``` bash
-composer update
+$ cd joel-beya-blog/
+```
+
+``` bash
+$ composer install
+```
+
+``` bash
+$ composer update
+```
+
+``` bash
+$ cd scripts/
+```
+
+``` bash
+$ php bin/console doctrine:database:create
+```
+
+``` bash
+$ php bin/console doctrine:schema:update --force
+```
+
+``` bash
+$ php bin/console make:migration
+```
+
+``` bash
+$ php bin/console doctrine:migrations:migrate
+```
+
+``` bash
+$ cd ../ && symfony serve
 ```
 
 # Usage
