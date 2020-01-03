@@ -6,6 +6,7 @@ use App\Entity\Article;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -18,14 +19,7 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('titledesc', TextType::class)
-            ->add('lastupdate', DateType::class, [
-              'placeholder' => [
-                'year' => 'Year',
-                'month' => 'Month',
-                'day' => 'Day',
-              ]
-            ])
+            ->add('description', TextType::class)
             ->add('heading', TextType::class)
             ->add('content', TextareaType::class)
         ;

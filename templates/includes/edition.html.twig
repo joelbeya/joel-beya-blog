@@ -1,12 +1,13 @@
-{{ form_start(form) }}
+
+{{ form_start(form, {'attr': {'class': 'w3-card-4 w3-white'}}) }}
   <div class="input-field col s12 m6 l6">
     {{ form_label(form.title) }}
     {{ form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
   </div>
 
   <div class="input-field col s12 m6 l6">
-    {{ form_label(form.titledesc) }}
-    {{ form_widget(form.titledesc, {'attr': {'placeholder': 'Petit Descriptif du Titre de l\'article'}}) }}
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description, {'attr': {'placeholder': 'Petit Descriptif du Titre de l\'article'}}) }}
   </div>
 
   <div class="input-field col s12 m12 l12">
@@ -22,14 +23,12 @@
 <hr>
   <div class="input-field col s12 m12 l12">
     <p>
-      <label>
-            <span>Date de Publication </span>
-            {{ form_widget(form.lastupdate, {'attr': {'class': 'filled-in'}}) }}
-          </label>
-        </p>
-  </div>
 
   <div class="input-field col s12 m12 l12">
     <input type="submit" name="" value="Sauvegarder" class="btn btn-primary">
+    <a href="{{ path('home') }}" class="btn btn-danger pull-right"><b>Annuler</b></a>
   </div>
+  <br>
+
 {{ form_end(form) }}
+</div>

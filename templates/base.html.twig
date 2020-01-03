@@ -27,6 +27,14 @@
     {% block about %}
     {% endblock %}
 
+    {% if app.session.flashBag.has('notice') %}
+            {% for msg in app.session.flashBag.get('notice') %}
+              <script>
+                alert('{{ msg }}')
+              </script>
+            {% endfor %}
+    {% endif %}
+
     {% if app.session.flashBag.has('ajoute') %}
             {% for msg in app.session.flashBag.get('ajoute') %}
               <script>
@@ -38,9 +46,17 @@
             {% for msg in app.session.flashBag.get('supprime') %}
               <script>
                 alert('{{ msg }}')
-              </script>"
+              </script>
             {% endfor %}
     {% endif %}
+    {% if app.session.flashBag.has('error') %}
+            {% for msg in app.session.flashBag.get('error') %}
+              <script>
+                alert('{{ msg }}')
+              </script>
+            {% endfor %}
+    {% endif %}
+
 
     <!-- w3-content defines a container for fixed size centered content,
     and is wrapped around the whole page content, except for the footer in this example -->

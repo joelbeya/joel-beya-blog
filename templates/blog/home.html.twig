@@ -21,12 +21,12 @@
       <div class="card my-4">
         <h3 class="card-header text-center"><b>Rechercher un article</b></h3>
         <div class="card-body">
-          <form role="search" id="nav-search-form" method="post">
-            <div class="input-group">
-              <input type="text" placeholder="Search" name ="search">
-              <button type="submit" style="width:100%;" class="btn btn-primary">Lancer la recherche</button>
-            </div>
-          </form>
+        {{ form_start(search_form) }}
+          <div class="input-group">
+            {{ form_widget(search_form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
+            {{ form_widget(search_form.search, {'attr': {'class': 'btn btn-primary', 'style': 'width:100%'}}) }}
+          </div>
+        {{ form_end(search_form) }}
         </div>
       </div>
     </div>
@@ -36,10 +36,10 @@
       <div class="w3-card-4 w3-margin">
       <br>
       <h3 class="w3-center"><b>{{ articles.title }}</b></h3>
-      <img class="responsive-img" src="https://www.w3schools.com/w3images/woods.jpg" alt="Nature" style="width:100%">
+        <img class="responsive-img" src="https://www.w3schools.com/w3images/woods.jpg" alt="Nature" style="width:100%">
         <div class="w3-container  w3-white">
           <hr>
-          <h5> <b>{{ articles.titledesc }}</b> </h5>
+          <h5> <b>{{ articles.description }}</b> </h5>
         </div>
         <div class="w3-container w3-white">
           <p>{{ articles.heading }}</p>
@@ -51,8 +51,9 @@
           <hr>
         </div>
         <div class="w3-container w3-white">
-          <h4> <span class="w3-opacity w3-center"> <i class="fa fa-calendar"></i> Posted on {{ articles.lastupdate|date('F jS, Y') }}</span></h4>
-          <hr>
+          <h4> <span class="w3-opacity w3-center"> <i class="fa fa-calendar"></i> Posted on {{ articles.lastupdate|date('F jS, Y') }}</span>   | <span class="w3-rigth" style="float:right; text-transform: capitalize;"> edited By {{ articles.author }}</span></h4>
+          <br>
+          <br>
         </div>
       </div>
     <hr>
@@ -69,11 +70,19 @@
 <div class="w3-col l4">
   <!-- About Card -->
   <div class="w3-center">
-    <div class="w3-card w3-margin w3-margin-top w3-center" style="width:80%">
-    <img src="{{ asset('img/joelbeya.jpg') }}" style="width:80%; border-radius: 80%;" alt="BEYA NTUMBA Joel image">
-
+    <div class="w3-card-4 w3-margin w3-margin-top w3-center" style="width:80%">
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="{{ asset('img/joelbeya.jpg') }}" style="width:70%; height: 30%; border-radius: 80%;" alt="BEYA NTUMBA Joel image">
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="w3-container w3-white w3-center">
       <br>
+
       <h4><b>BEYA NTUMBA Joel</b></h4>
       <p>Développeur Web Front-End</p>
       <div class="w3-row-padding w3-center">
@@ -94,7 +103,7 @@
 
 
   <!-- Posts -->
-  <div class="w3-card w3-margin" style="width:80%">
+  <div class="w3-card-4 w3-margin" style="width:80%">
   <div class="w3-container w3-padding w3-xxxlarge w3-center">
     <h4><b>Popular Posts</b></h4>
   </div>
@@ -104,7 +113,7 @@
         <li class="w3-padding-16">
           <img class="responsive-img" src="https://www.w3schools.com/w3images/woods.jpg" alt="Article" style="width:50px">
           <a href="{{ path('show', {'id': articles.id}) }}"><span class="w3-large"> <b>{{ articles.title }}</b> </span>
-          <span>{{ articles.titledesc }}</span></a>
+          <span>{{ articles.description }}</span></a>
         </li>
       </ul>
     {% endfor %}
@@ -113,7 +122,7 @@
   <hr>
 
   <!-- Labels / tags -->
-  <div class="w3-card w3-margin w3-center" style="width:80%">
+  <div class="w3-card-4 w3-margin w3-center" style="width:80%">
     <div class="w3-container w3-padding w3-xxxlarge w3-center">
       <h4><b>Tags</b></h4>
     </div>

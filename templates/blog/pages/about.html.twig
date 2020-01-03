@@ -75,25 +75,25 @@
     <div class="w3-col l3 m6 w3-card-4 w3-light-grey w3-container w3-padding-16">
       <h3><strong>Create</strong></h3>
       <p>On peut créer un article, en appuyant sur le bouton Add sur la barre des tâches</p>
-      <p>En suite on doit préciser la date, en effet on a laissé libre le choix de la date</p>
+      <p>Automatiquement après création de l'article, on reçoit l'exclusivité de la suppression de l'article</p>
     </div>
 
     <div class="w3-col l3 m6 w3-card-4 w3-grey w3-container w3-padding-16">
       <h3><strong>Read</strong></h3>
       <p>On peut lire un article en entier en appuyant sur le bouton Read More</p>
-      <p>On peut aimer un article et ne pas toucher au bouton Comment XD</p>
+      <p>On peut aimer un article et pouvoir Editer si on est connecté et supprimer si en plus on en est l'auteur</p>
     </div>
 
     <div class="w3-col l3 m6 w3-card-4 w3-dark-grey w3-container w3-padding-16">
       <h3><strong>Update</strong></h3>
       <p>On peut mettre à jour un article en appuyant sur le boutton Edit</p>
-      <p>Les autres utilisateurs pourront le lire et aussi la modifier à leurs guises</p>
+      <p>Les autres utilisateurs pourront le lire et aussi la modifier (Fonctionement inspiré de Wikipedia)</p>
     </div>
 
     <div class="w3-col l3 m6 w3-card-4 w3-black w3-container w3-padding-16">
       <h3><strong>Delete</strong></h3>
       <p>Vous pouvez supprimer un article en appuyant sur le boutton delete</p>
-      <p>Mais attention, l'opération n'est pas reversible, ne la faire âme et conscience.</p>
+      <p>Mais attention, l'opération n'est pas reversible, ne la faire âme et conscience. et aussi si on est l'auteur</p>
     </div>
   </div>
 
@@ -111,7 +111,7 @@
           <h3><strong>KULAKOWKSI Guillaume</strong></h3>
           <p class="w3-opacity">API Management API Architect, DevOps & Open-Source contributor</p>
           <p>Intervenant au module de HMIN302 en Master 2 Informatique à la Faculté des Sciences de l'Université de Montpellier</p>
-          <a href="https://www.linkedin.com/in/guillaumekulakowski/"><button class="w3-button w3-light-grey w3-block">Contact</button></a>
+          <a href="https://www.linkedin.com/in/guillaumekulakowski/" class="w3-button w3-light-grey w3-block">Contact</a><br>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@
           <h3><strong>CARIOU Loic</strong></h3>
           <p class="w3-opacity">Web Solution Architect</p>
           <p>Intervenant au module de HMIN302 en Master 2 Informatique à la Faculté des Sciences de l'Université de Montpellier</p>
-          <a href="https://www.linkedin.com/in/lo%C3%AFc-cariou-93b8418a/"><button class="w3-button w3-light-grey w3-block">Contact</button></a>
+          <a href="https://www.linkedin.com/in/lo%C3%AFc-cariou-93b8418a/" class="w3-button w3-light-grey w3-block">Contact</a><br>
         </div>
       </div>
     </div>
@@ -137,7 +137,8 @@
           <h3><strong>BEYA NTUMBA Joel</strong></h3>
           <p class="w3-opacity">Web Designer</p>
           <p>Étudiant en Master 2 Informatique, parcous AIGLE, année académique 2019-2020</p>
-          <a href="https://www.linkedin.com/in/joelbeya/"><button class="w3-button w3-light-grey w3-block">Contact</button></a>
+          <a href="https://www.linkedin.com/in/joelbeya/" class="w3-button w3-light-grey w3-block">Contact</a>
+          <br>
         </div>
       </div>
     </div>
@@ -171,7 +172,7 @@
         </div>
         <input class="w3-check" type="checkbox" checked name="Like">
         <label>I Like it!</label>
-          <a href="{{ path('home', { 'mes' : "Votre message a bien été envoyé"}) }}"></a>  <button type="submit" class="w3-button w3-right w3-theme">Send</button></a>
+          <a href="{{ path('home', { 'mes' : "Votre message a bien été envoyé"}) }}"></a>  type="submit" class="w3-button w3-right w3-theme">Send</button></a>
         </form>
       </div>
     </div>
