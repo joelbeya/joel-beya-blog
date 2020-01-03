@@ -1,15 +1,5 @@
 # joel-beya-blog
 
-+ Nom d'utilisateur : TestUser
-+ Adresse e-mail : test_user@gmail.com
-+ Mot de passe : TestUser123
-
-
-(Si besoin, pour modification/suppression de poste d'un autre utilisateur)
-+ Nom d'utilisateur : TestUser2
-+ Adresse e-mail : test_user_2@hotmail.fr
-+ Mot de passe : TestUser123
-
 # Installation
 
 ``` bash
@@ -22,14 +12,19 @@ composer update
 
 # Usage
 
-Executer le script "run.sh"
+## Cloner le git et aller sur le repertoire /joel-beya-blog: 
+### Aller sur le dossier /joel-beya-blog/scripts:
+Lancer le script **`database.sh`**
+Ou tout simplement les commandes **`php bin/console doctrine:database:create && php bin/console doctrine:schema:update --force`**
+Enfin faire les migrations pour re-créer l'entity Article
+### En suite revenir sur le dossier racine /joel-beya-blog:
+Exécuter la commande **`symfony serve`**
 
-## Autres scripts (/script)
+## Les scripts (/script)
 
-+ database.sh : Réinitialise la base de données (create schema + create sqlite.db)
-+ database_prod.sh : Réinitialise la base de données en production (DANGER)
-+ entity.sh : Génère l'entitée Post (Post.php)
-+ translate.sh : Mets à jour les traductions
++ database.sh : Crée la base de données (create schema + create sqlite.db)
++ production.sh : Pour pouvoir créer la base de donnée sur heroku (create schema + create postgresql.db)
+
 
 # Présentation du blog
 
@@ -39,46 +34,42 @@ Il y a 2 types d'utilisateurs
 + Connecté
 + Non connecté
 
-### Connexion
-L'utilisateur n'est pas connecté,
+### Non connecté
+L'utilisateur non connecté verra :
 
-+ dans le menu en haut à droite, une cliquer sur l'onglet "Connexion"
-+ Saisir les identifiants
++ La barre de tâches avec les trois boutons avec un **LogIn/Register** lui permettant de se s'enregistrer et de créer un compte si ça n'est pas dèjà le cas ou de se connecter si il a déjà un compte
++ En effet, outre que le bouton **Add** qui n'apparaît qu'après qu'il soit connecté, la plupart des actions qu'on peut retrouver sur la page `show` du bouton **Read More  &rarr;** l'enverront systématique à la page de connection
 
-### Inscription
-L'utilisateur n'est pas connecté,
+### Connecté
+L'utilisateur connecté,
 
-+ Dans le menu en haut à droite, cliquer sur l'onglet "Inscription"
-+ Saisir les informations
++ Après connection et redirection vers la page d'acceuil, on voit systématiquement apparaître le bouton **Add** sur la barre de tâche qui donne la possibilité de créer/ajouter un article.
++ On peut désormais sur la page `show` du bouton **Read More  &rarr;** modifier un article (bouton **Edit**) ou quasiment le supprimer (Bouton **Remove**)
 
 ### Profile
 L'utilisateur est connecté,
 
-+ Dans le menu en haut à droite, cliquer sur l'onglet "Profil"
++ Sur la barre de tâche apparaît un bouton avec le nom de l'utilisateur menant à la page de configuration du profil utilsateur
 
-Possibilité de modifier les informations du profile
++ Possibilité de modifier les informations du profile
++ Possibilité de se deconnecter
 
-### Deconnexion
-L'utilisateur est connecté,
+## Articles
 
-+ Dans le menu en haut à droite, cliquer sur l'onglet "Deconnexion"
-
-## Poste
-
-### Voir les postes
+### Voir les articles
 
 Page par défault (Accueil)
 
-+ Dans le menu en haut à droite, une cliquer sur l'onglet "Accueil"
++ Sur la barre de tâche, le logo en bleu **Beya N. Joel's blog** ramène toujours à l'acceuil
 
-4 articles par page (Trie par date de publication décroissante), possibilité de lire plus articles en cliquant sur "Anciens articles"
++ 3 articles par page (Trie par date de publication décroissante) avec une pagination pour pouvoir plus d'articles
 
 ### Rechercher un article (Par son titre)
 
 Sur la page d'accueil
 
 + Rentrer le titre de l'article rechercher, dans le champ juste en dessous de "Rechercher un article", en haut de la liste des articles.
-+ Cliquer sur "Search"
++ Cliquer sur "Lancer la recherche"
 
 La nouvelle liste des articles correspondant à la recherche apparait.
 
@@ -87,31 +78,23 @@ La recherche n'est pas sensible aux majuscules/minuscules.
 ### Poster un article
 Seul les utilisateurs connectés peuvent poster un article,
 
-Sur la page d'accueil, en bas de la liste des articles.
-+ Remplire les champs
-  + Titre : Titre de l'article
-  + Contenu : Le contenu de l'article
-  + Image url (OPTIONNEL)  : Permet de déposer une image depuis l'ordinateur de l'utilisateur, si aucune image n'est déposé, aucune image ne sera associé à l'article.
-
-Si l'utilisateur est connecté, l'auteur sera <PseudoDeL'utilisateur>.
-
-Si l'utilisateur n'est pas connecté, un message d'erreur apparait.
+Sur la barre de tâche, appuyer sur le boutton **`Add`**
 
 ### Details d'un article
 
 Sur la liste des articles (Page d'accueil)
-+ Cliquer sur le bouton "Détails"
++ Cliquer sur le bouton **`Read More  &rarr;`**
 
-Cette page permet de lire l'article en entier.
+Cette page permet de lire l'article en entier. Et vous pouvez aimer l'article
 
 #### Supprimer un article
 
-Seul un utilisateur connecté et auteur de l'article peut le supprimer.
+Seul un utilisateur connecté peut le supprimer.
 
 Sur la page détails de l'article.
-+ Cliquer de "Supprimer"
++ Cliquer sur le bouton **`Remove`**
 
-Si l'utilisateur n'est pas l'auteur, un message d'erreur apparait.
+Si l'utilisateur n'est pas l'auteur, un message d'erreur apparait et on est redirigé vers la page d'acceuil
 
 Si l'utilisateur n'est pas connecté, il est redirigé sur la page de connexion.
 
@@ -132,6 +115,7 @@ Si l'utilisateur n'est pas connecté, il est redirigé sur la page de connexion.
 
 ### A propos
 
+
 Une page de présentation, lien vers le répertoire github
 
 # Fonctionnement du blog (Backend)
@@ -139,75 +123,59 @@ Une page de présentation, lien vers le répertoire github
 ## Controlleurs
 
 + BlogController : Renvoie sur les différentes pages du blog
-+ CrudController : Gère les différentes actions liées aux "Post" (Details/Edit/Delete), la création est gérer par le BlogController car directement sur la page d'accueil.
-
-## Traductions
-Le site est en grande partie traduit en Francais et en Anglais, les tests on été faits en locale en modifiant la valeur parameters->locale fr/en dans https://github.com/Harkame/eApplication-Blog/blob/master/app/config/config.yml
-
-### Formattage des dates
-
-Nous avons pris connaissance de la fonction "localizeddate('long', 'none', 'en')" et de l'extension de Twig : intl pour formatter les dates en fonction des locales, cependant nous n'avons pas réussit à faire fonctionner le formattage dans un autre format que "en", il semblerait que cela vienne de la version de PHP.
++ CrudController : Gère les différentes actions liées aux "Artciles" (Add/Show/Edit/Remove), 
 
 ## Gestion des utilisateurs
 FOSUserBundle
++ Override du dossier templates/FOSUserBundle/Security/Profile : Pour la gestion du compte utilisateur d'un utilisateur (Edit/Show)
+
++ Override du dossier templates/FOSUserBundle/Security/Registration : Pour l'enregistrement et la création du compte Utilisateur
+
++ Override du dossier templates/FOSUserBundle/Security/Security : Pour la connexion et l'obtention des privilèges utilisateurs.
 
 https://github.com/FriendsOfSymfony/FOSUserBundle
 
 ## CSS
 
-Bootstrap
+Bootstrap & W3Css
 
 ### Exemple utilisé
 
-https://startbootstrap.com/template-overviews/clean-blog/
+https://www.w3schools.com/w3css/tryw3css_templates_blog.htm
 
-## Les images
-La gestion est ultra simplifié, l'image est déposé depuis le formulaire (FileType), et enregistré dans le répertoire /web/image/ avec un identifiant unique. Le nom complet de l'image est associé à un article et sera affiché dans la liste des articles. Il arrive que les images ne soit plus affiché en entête des articles.
-
-## Securité
-Les routes d'édition et de suppression d'un article sont sécurisé par FosUserBundle dans le fichier https://github.com/Harkame/eApplication-Blog/blob/master/app/config/security.yml. Si un utilisateur non connecté accède à ses routes, il est redirigé vers la page de connexion.
-Dans le cas ou un utilisateur est connecté mais n'est pas l'auteur d'un article qu'il veut supprimer, un test est fait pour voir si l'utilisateur courant est l'auteur, si oui la modification/suppression est faite, sinon un message d'erreur apparait.
-La création est également sécurisé mais "à la main", si un utilisateur non connecté tente de article un article, un message d'erreur apparait en lui demandant de se connecter.
 
 ## Les formulaires
 Les formulaires de création et de mofication sont gérés par Symfony.
 
-## Base de données - Heroku
+## Base de données 
 
-PostgreSQL 9.5
+**`Ubuntu`** : Sqlite 3.2
+**`Heroku`** : PostgreSQL 9.5
 
 ## Validation W3C
 
 https://validator.w3.org
 
-+ Accueil : https://validator.w3.org/nu/?doc=https%3A%2F%2Flouis-daviaud-blog.herokuapp.com%2F1
-+ About : https://validator.w3.org/nu/?doc=https%3A%2F%2Flouis-daviaud-blog.herokuapp.com%2Fabout
-+ Post : https://validator.w3.org/nu/?doc=http%3A%2F%2Flouis-daviaud-blog.herokuapp.com%2Fpost%2F11
++ Accueil : https://validator.w3.org/nu/?doc=http%3A%2F%2Fjoel-beya-blog.herokuapp.com%2Fpage
++ About : https://validator.w3.org/nu/?doc=http%3A%2F%2Fjoel-beya-blog.herokuapp.com%2Fabout
++ CV : http://joel-beya-blog.herokuapp.com/cv
 
-# Quelques tests de sécurité
+Pour la gestion des utilisateurs 
 
-Modification ou suppression d'un poste d'un autre utilisateur.
++ Profile : http://joel-beya-blog.herokuapp.com/profile/
++ Modification profile : http://joel-beya-blog.herokuapp.com/profile/edit
++ Enregistrement : http://joel-beya-blog.herokuapp.com/login
++ Connexion : http://joel-beya-blog.herokuapp.com/register/
 
-## Utilisateur non connecté
+Pour la gestion des articles
 
-+ louis-daviaud-blog.herokuapp.com/post/delete/12
-+ louis-daviaud-blog.herokuapp.com/post/edit/12
++ Ajout/ Création : http://joel-beya-blog.herokuapp.com/add
++ Modification : http://joel-beya-blog.herokuapp.com/edit/2
++ Lecture : http://joel-beya-blog.herokuapp.com/show/2
 
-## Utilisateur connecté
-
-+ Nom d'utilisateur : TestUser2
-+ Adresse e-mail : test_user_2@hotmail.fr
-+ Mot de passe : TestUser123  
-<br/>
-
-+ louis-daviaud-blog.herokuapp.com/post/delete/12
-+ louis-daviaud-blog.herokuapp.com/post/edit/12
 
 # Ce qui n'a pas été fait
-+ Un groupe d'utilisateur ADMIN, pouvant editer ou supprimer TOUS les postes. Dans notre cas, seul l'auteur peut éditer ou supprimer son poste.
-+ Une page pour la création, nous avons fait le choix de mettre le formulaire de création directement sur la page d'accueil, en dessous de la liste des postes, ce qui explique que le CrudController n'est pas d'action "newPost"
++ Un groupe d'utilisateur ADMIN, pouvant editer ou supprimer TOUS les postes. Dans notre cas, seul l'auteur peut supprimer son poste.
+
 + Une gestion avancée des images, avec dépôt des images sur un site de stockage par exemple.
 
-# Commentaires sur l'UE
-+ Dans ce même UE, nous avons un autre projet (faire un site web), il est probable que certaine personne ne savait pas faire de site web du tout et faire la partie Symfony avant la partie de M. Lafourcade (Plus libre) pourrait être intéressant.
-        
