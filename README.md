@@ -39,7 +39,11 @@ $ php bin/console doctrine:migrations:migrate
 ```
 
 ``` bash
-$ cd ../ && symfony serve
+$ php bin/console doctrine:schema:update --force
+```
+
+``` bash
+$ cd .. && symfony serve
 ```
 
 # Usage
