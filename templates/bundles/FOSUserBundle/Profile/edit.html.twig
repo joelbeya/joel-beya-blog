@@ -1,0 +1,21 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<hr>
+<div class="container-fluid justify-content">
+  <h1 class="w3-xxxlarge w3-center"><b>Edit User</b></h1>
+  <p class="w3-center"> <b>Change your user Credential.</b></p>
+  <hr>
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" class="btn btn-success" value="{{ 'profile.edit.submit'|trans }}" />
+        </div>
+    {{ form_end(form) }}
+
+  <a href="{{ path('fos_user_profile_show') }}"><button class="btn btn-primary" style="width:100%;">Cancel ?</button></a>
+</div>
+<hr>
+{% endblock fos_user_content %}

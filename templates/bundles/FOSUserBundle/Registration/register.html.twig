@@ -1,0 +1,25 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<div class="w3-card-4 w3-padding-16 w3-white" style="width:50%; margin:auto">
+  <h1 class="w3-xxxlarge w3-center"><b>Register</b></h1>
+  <p class="w3-center"> <b>Please register to get the user permission to create read update and delete article on the site.</b></p>
+  <hr>
+  <div class="w3-container">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" style="width: 100%;" class="btn btn-success" value="{{ 'registration.submit'|trans }}" />
+        </div>
+        <br>
+    {{ form_end(form) }}
+  </div>
+  <p class="w3-center">Or</p>
+  <div class="input-field col s12 m12 l12">
+    <a style="width: 100%;"  class="btn btn-primary" href="{{ path('fos_user_security_login') }}">Log-In</a>
+  </div>
+</div>
+<hr>
+{% endblock fos_user_content %}

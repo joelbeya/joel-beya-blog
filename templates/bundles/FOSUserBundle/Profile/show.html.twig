@@ -1,0 +1,24 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<hr>
+<h2 style="text-align:center">Votre profil Utilisateur</h2>
+
+<div class="card">
+  <img src="https://fnadepape.org/wp-content/uploads/2018/07/avatar-1577909_960_720.png" alt="John" style="width:100%">
+  <h1> <b> {{ user.username }}</b></h1>
+  <p class="title">CEO & Founder, Example</p>
+  <h4><b>{{ user.email }}</b></h4>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+  </div>
+
+  <a href="{{ path('fos_user_profile_edit') }}"><button class="btn btn-primary">Edit ?</button></a>
+  <a href="{{ path('fos_user_security_logout') }}"><button class="btn btn-danger">Log-Out ?</button></a>
+  <br>
+</div>
+<hr>
+{% endblock fos_user_content %}

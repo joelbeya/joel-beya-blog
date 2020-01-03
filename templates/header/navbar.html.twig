@@ -1,0 +1,38 @@
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a class="navbar-brand" href="{{ path('home') }}">
+      <img class="responsive-img" src="{{ asset('ico/bnjb3.ico') }}"  height="35" alt="BEYA NTUMBA Joel's blog">
+    </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      {% if app.user is defined and app.user.username is defined %}
+        <a href="{{ path('fos_user_profile_show') }}" class="w3-bar-item w3-button" style="text-transform: capitalize;"><i class="fa fa-user"></i><b> {{ app.user.username }}</b></a>
+        <a href="{{ path('add') }}" class="w3-bar-item w3-button"><i class="fa fa-plus"></i><b> Add</b></a>
+      {% else %}
+        <a href="{{ path('fos_user_security_login') }}" class="w3-bar-item w3-button" style="text-transform: capitalize;"><i class="fa fa-user"></i><b> Log-In / Register</b></a>
+      {% endif %}
+      <a href="{{ path('about') }}" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i><b> About</b></a>
+      <a href="{{ path('cv') }}" class="w3-bar-item w3-button"><i class="fa fa-id-card"></i><b> CV</b></a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+<br>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><strong>HIDE X</strong></a>
+  {% if app.user is defined and app.user.username is defined %}
+    <a href="#profil" onclick="w3_close()" class="w3-bar-item w3-button" style="text-transform: capitalize;">{{ app.user.username }}</a>
+    <a href="{{ path('add') }}" onclick="w3_close()" class="w3-bar-item w3-button">Add</a>
+  {% else %}
+    <a href="{{ path('fos_user_security_login') }}" onclick="w3_close()" class="w3-bar-item w3-button">Log-IN / Register</a>
+  {% endif %}
+  <a href="{{ path('cv') }}" onclick="w3_close()" class="w3-bar-item w3-button">CV</a>
+  <a href="{{ path('about') }}" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+</nav>
+<br>

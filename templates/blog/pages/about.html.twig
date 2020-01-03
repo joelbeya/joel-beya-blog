@@ -1,0 +1,182 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BNJ's CV{% endblock %}
+
+{% block stylesheets %}
+  {% include 'includes/stylesheets.html.twig' %}
+{% endblock %}
+
+{% block about %}
+
+
+<!-- Band Description -->
+<!-- Content -->
+<div class="w3-content" style="max-width:900px;margin-top:70px;margin-bottom:80px">
+  <h1 class="w3-xxlarge w3-center"><b>À propos du blog</b></h1>
+  <hr>
+  <h2 class="w3-xxlarge w3-center"><a href="https://github.com/joelbeya/joel-beya-blog">BNJ's code source</a> </h2>
+  <hr>
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16"><strong>IDÉA</strong></span>
+    </div>
+    <div class="w3-col">
+      <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-container">
+          <h3 class="w3-xxlarge"><strong>Idée générale du blog</strong></h3>
+          <p>Pour ce blog, un cahier de charges à été fournis concernant plus la logique métier et donc
+          les technologies à utiliser et quelques fonctionailités impératives à implémentés</p>
+          <p>On a donc implémenté ce blog en s'inspirant de ce que fait Wikipédia, c'est à dire un blog ouvert où il suffirait de s'inscrire pour pouvoir avoir accès à toutes les options fondamentales pour éditer un article sut un blog du site</p>
+          <p>En effet, Wikipedia ayant fait ses preuves et prouver que l'accès libre à l'édition aux utlisateurs permet d'avoir un gain considérable sur les éditions et mises à jours des données péerne sur un site partagé</p>
+          <p>Il suffit donc de s'enregistrer et de se connecter afin de pouvoir bénéficiier de tous les droits sur les articles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16"><strong>TECHNOLOGIES</strong></span>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-black w3-container w3-padding-16">
+      <h5><img  height="40"  src="{{ asset('img/sf.png') }}" alt="Symfony"><strong> Symfony </strong></h5>
+      <p>Le développement su site entier repose sur ce framework avec l'utilisation de Flex</p>
+      <p>On a utiliser la version 4.3.* de Symfony suite à sa compatibilité avec certains bundles(tels que FosUser) non maintenus sur des versions plus reçentes du FrameWork</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-dark-grey w3-container w3-padding-16">
+      <h5><img  height="40"  src="{{ asset('img/heroku.png') }}" alt=""><strong> Heroku</strong></h5>
+      <p>Il existe plusieurs incompatibilités entre le travail en locale et en production.</p>
+      <p>En effet, certaines fonctions ne marche (Cas de make:user) qu'en local et qu'en production on rencontre des problèmes liés à la gestion des privilèges...</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-grey w3-container w3-padding-16">
+      <h5><img  height="40"  src="{{ asset('img/doc.png') }}" alt=""><strong> Doctrine</strong></h5>
+      <p>Manipulation de la base de données SQLite en local et PostGreSql en producton</p>
+      <p>En effet, l'ORM de doctrine nous permet de faire le lien entre les deux Systèmes de Gestion de Base de Données et aussi nous fournit une persistance transparente de nos données</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-light-grey w3-container w3-padding-16">
+      <h5><img  height="40"  src="{{ asset('img/boot.png') }}" alt="bootstrap"><strong> Bootstrap </strong></h5>
+      <p>On l'utilise coté client surtout pour la partie des bundles où on a fait un "Override" (ex: FosUser)</p>
+      <h5><img  height="40"  src="{{ asset('img/w3_logo.png') }}" alt=""><strong> W3-CSS </strong> </h5>
+      <p>On a utilisé ce frameWork CSS pour la plupart de nos balises les rendant ainsi responsive</p>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16"><strong>C-R-U-D</strong></span>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-light-grey w3-container w3-padding-16">
+      <h3><strong>Create</strong></h3>
+      <p>On peut créer un article, en appuyant sur le bouton Add sur la barre des tâches</p>
+      <p>En suite on doit préciser la date, en effet on a laissé libre le choix de la date</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-grey w3-container w3-padding-16">
+      <h3><strong>Read</strong></h3>
+      <p>On peut lire un article en entier en appuyant sur le bouton Read More</p>
+      <p>On peut aimer un article et ne pas toucher au bouton Comment XD</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-dark-grey w3-container w3-padding-16">
+      <h3><strong>Update</strong></h3>
+      <p>On peut mettre à jour un article en appuyant sur le boutton Edit</p>
+      <p>Les autres utilisateurs pourront le lire et aussi la modifier à leurs guises</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-card-4 w3-black w3-container w3-padding-16">
+      <h3><strong>Delete</strong></h3>
+      <p>Vous pouvez supprimer un article en appuyant sur le boutton delete</p>
+      <p>Mais attention, l'opération n'est pas reversible, ne la faire âme et conscience.</p>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="w3-row-padding">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16"><strong>Who We Are</strong></span>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="{{ asset('img/gui.jpg') }}" alt="Guillaume" style="height:280px;width:100%">
+        <div class="w3-container">
+          <br>
+          <h3><strong>KULAKOWKSI Guillaume</strong></h3>
+          <p class="w3-opacity">API Management API Architect, DevOps & Open-Source contributor</p>
+          <p>Intervenant au module de HMIN302 en Master 2 Informatique à la Faculté des Sciences de l'Université de Montpellier</p>
+          <a href="https://www.linkedin.com/in/guillaumekulakowski/"><button class="w3-button w3-light-grey w3-block">Contact</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="{{ asset('img/loic.jpeg') }}" alt="Loic" style="height:280px;width:100%">
+        <div class="w3-container">
+          <br>
+          <h3><strong>CARIOU Loic</strong></h3>
+          <p class="w3-opacity">Web Solution Architect</p>
+          <p>Intervenant au module de HMIN302 en Master 2 Informatique à la Faculté des Sciences de l'Université de Montpellier</p>
+          <a href="https://www.linkedin.com/in/lo%C3%AFc-cariou-93b8418a/"><button class="w3-button w3-light-grey w3-block">Contact</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="{{ asset('img/joelbeya.jpg') }}" alt="Joel" style="height:280px;width:100%">
+        <div class="w3-container">
+          <br>
+          <h3><strong>BEYA NTUMBA Joel</strong></h3>
+          <p class="w3-opacity">Web Designer</p>
+          <p>Étudiant en Master 2 Informatique, parcous AIGLE, année académique 2019-2020</p>
+          <a href="https://www.linkedin.com/in/joelbeya/"><button class="w3-button w3-light-grey w3-block">Contact</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contact Container -->
+  <div class="w3-container w3-padding-64 w3-theme-l5">
+    <div class="w3-row">
+      <div class="w3-col m5">
+      <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
+        <h3>Address</h3>
+        <p>Swing by for a cup of coffee, or whatever.</p>
+        <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Montpellier, FRANCE</p>
+        <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +33 6 05 84 48 70</p>
+        <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  joelbeya.bj@gmail.com</p>
+      </div>
+      <div class="w3-col m7">
+        <form class="w3-container w3-card-4 w3-padding-16 w3-white">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input" type="text" name="Message" required>
+        </div>
+        <input class="w3-check" type="checkbox" checked name="Like">
+        <label>I Like it!</label>
+          <a href="{{ path('home', { 'mes' : "Votre message a bien été envoyé"}) }}"></a>  <button type="submit" class="w3-button w3-right w3-theme">Send</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

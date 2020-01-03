@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+  <div class="input-field col s12 m6 l6">
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
+  </div>
+
+  <div class="input-field col s12 m6 l6">
+    {{ form_label(form.titledesc) }}
+    {{ form_widget(form.titledesc, {'attr': {'placeholder': 'Petit Descriptif du Titre de l\'article'}}) }}
+  </div>
+
+  <div class="input-field col s12 m12 l12">
+    {{ form_label(form.heading) }}
+    {{ form_widget(form.heading, {'attr': {'class': 'materialize-text', 'placeholder': 'Avant propos de l\'article'}}) }}
+  </div>
+
+  <div class="input-field col s12 m12 l12">
+    {{ form_label(form.content) }}
+    {{ form_widget(form.content, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Le contenu de l\'article'}}) }}
+  </div>
+
+<hr>
+  <div class="input-field col s12 m12 l12">
+    <p>
+      <label>
+            <span>Date de Publication </span>
+            {{ form_widget(form.lastupdate, {'attr': {'class': 'filled-in'}}) }}
+          </label>
+        </p>
+  </div>
+
+  <div class="input-field col s12 m12 l12">
+    <input type="submit" name="" value="Sauvegarder" class="btn btn-primary">
+  </div>
+{{ form_end(form) }}

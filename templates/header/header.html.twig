@@ -1,0 +1,34 @@
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+  <a class="navbar-brand" href="{{ path('home') }}">
+    <img class="responsive-img" src="{{ asset('ico/bnjb3.ico') }}"  height="35" alt="BEYA NTUMBA Joel's blog">
+  </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+    {% if article is defined %}
+      <a href="{{ path('show', {'id': article.id}) }}" class="w3-bar-item w3-button"><i class="fa fa-times"></i> Cancel</a>
+    {% else %}
+      <a href="{{ path('home') }}" class="w3-bar-item w3-button"><i class="fa fa-times"></i> Cancel</a>
+    {% endif %}
+    <a href="{{ path('about') }}" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i><b> About</b></a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+<hr>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><strong>HIDE X</strong></a>
+  {% if article is defined %}
+    <a href="{{ path('show', {'id': article.id}) }}" onclick="w3_close()" class="w3-bar-item w3-button">Cancel</a>
+  {% else %}
+    <a href="{{ path('home') }}" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  {% endif %}
+  <a href="{{ path('about') }}" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+</nav>
+<hr>

@@ -1,0 +1,16 @@
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: "joelbeya.bj@gmail.com"
+        sender_name: "Blog du futur BEYA NTUMBA Joel"
+    # service:
+    #     mailer: fos_user.mailer.twig_swift
+    # registration:
+    #     confirmation:
+    #         enabled: true
+    #         from_email:
+    #             address: "joelbeya.bj@gmail.com"
+    #             sender_name: "Blog du futur BEYA NTUMBA Joel"
+    #         # template: 'email/registration.email.twig'

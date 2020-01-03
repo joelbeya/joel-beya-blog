@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BNJ's blog{% endblock %}
+
+{% block stylesheets %}
+  {% include 'includes/stylesheets.html.twig' %}
+{% endblock %}
+
+{% block customstyle %}
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+{% endblock %}
+
+{% block body %}
+<!-- Grid -->
+<div class="w3-row">
+  <!-- Blog entries -->
+  <div class="w3-col l8 s12">
+    <div class="w3-card-4 w3-margin">
+      <!-- Search Widget -->
+      <div class="card my-4">
+        <h3 class="card-header text-center"><b>Rechercher un article</b></h3>
+        <div class="card-body">
+          <form role="search" id="nav-search-form" method="post">
+            <div class="input-group">
+              <input type="text" placeholder="Search" name ="search">
+              <button type="submit" style="width:100%;" class="btn btn-primary">Lancer la recherche</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Blog entry -->
+  {% if article is defined %}
+    {% for articles in article %}
+      <div class="w3-card-4 w3-margin">
+      <br>
+      <h3 class="w3-center"><b>{{ articles.title }}</b></h3>
+      <img class="responsive-img" src="https://www.w3schools.com/w3images/woods.jpg" alt="Nature" style="width:100%">
+        <div class="w3-container  w3-white">
+          <hr>
+          <h5> <b>{{ articles.titledesc }}</b> </h5>
+        </div>
+        <div class="w3-container w3-white">
+          <p>{{ articles.heading }}</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <a href="{{ path('show', {'id': articles.id}) }}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="w3-container w3-white">
+          <h4> <span class="w3-opacity w3-center"> <i class="fa fa-calendar"></i> Posted on {{ articles.lastupdate|date('F jS, Y') }}</span></h4>
+          <hr>
+        </div>
+      </div>
+    <hr>
+    {% endfor %}
+    <div class="w3-center w3-padding-large w3-border w3-center">
+    {{ knp_pagination_render(article) }}
+    </div>
+    <hr>
+    {% endif %}
+  </div>
+
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-center">
+    <div class="w3-card w3-margin w3-margin-top w3-center" style="width:80%">
+    <img src="{{ asset('img/joelbeya.jpg') }}" style="width:80%; border-radius: 80%;" alt="BEYA NTUMBA Joel image">
+
+    <div class="w3-container w3-white w3-center">
+      <br>
+      <h4><b>BEYA NTUMBA Joel</b></h4>
+      <p>Développeur Web Front-End</p>
+      <div class="w3-row-padding w3-center">
+          <h3>Me contacter via les réseaux sociaux</h3>
+          <div class="w3-xlarge w3-section">
+            <a href="https://www.facebook.com/joel.beya.752" class="fa fa-facebook-official w3-hover-opacity"></a>
+            <a href="https://www.instagram.com/joelbeya01/" class="fa fa-instagram w3-hover-opacity"></a>
+            <a href="https://github.com/joelbeya" class="fa fa-github w3-hover-opacity"></a>
+            <a href="https://www.pinterest.fr/joelbeyabj/" class="fa fa-pinterest-p w3-hover-opacity"></a>
+            <a href="https://twitter.com/joelbeya_bj" class="fa fa-twitter w3-hover-opacity"></a>
+            <a href="https://www.linkedin.com/in/joelbeya/" class="fa fa-linkedin w3-hover-opacity"></a>
+          </div>
+      </div>
+    </div>
+    </div><hr>
+  </div>
+
+
+
+  <!-- Posts -->
+  <div class="w3-card w3-margin" style="width:80%">
+  <div class="w3-container w3-padding w3-xxxlarge w3-center">
+    <h4><b>Popular Posts</b></h4>
+  </div>
+    {% if article is defined %}
+      {% for articles in article %}
+      <ul class="w3-ul w3-hoverable w3-white">
+        <li class="w3-padding-16">
+          <img class="responsive-img" src="https://www.w3schools.com/w3images/woods.jpg" alt="Article" style="width:50px">
+          <a href="{{ path('show', {'id': articles.id}) }}"><span class="w3-large"> <b>{{ articles.title }}</b> </span>
+          <span>{{ articles.titledesc }}</span></a>
+        </li>
+      </ul>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <hr>
+
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin w3-center" style="width:80%">
+    <div class="w3-container w3-padding w3-xxxlarge w3-center">
+      <h4><b>Tags</b></h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    </p>
+    </div>
+  </div>
+
+  <!-- END Introduction Menu -->
+  </div>
+</div>
+{% endblock %}

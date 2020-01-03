@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zxx" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+  <title>
+    {% block title %}BNJ's blog{% endblock %}
+  </title>
+
+    {% block stylesheets %}
+    {% endblock %}
+
+  </head>
+  <body class=" w3-light-grey">
+    <header>
+      {% block header %}
+        {% include 'header/navbar.html.twig' %}
+      {% endblock %}
+    </header>
+
+    {% block cv %}
+    {% endblock %}
+
+    {% block about %}
+    {% endblock %}
+
+    {% if app.session.flashBag.has('ajoute') %}
+            {% for msg in app.session.flashBag.get('ajoute') %}
+              <script>
+                alert('{{ msg }}')
+              </script>
+            {% endfor %}
+    {% endif %}
+    {% if app.session.flashBag.has('supprime') %}
+            {% for msg in app.session.flashBag.get('supprime') %}
+              <script>
+                alert('{{ msg }}')
+              </script>"
+            {% endfor %}
+    {% endif %}
+
+    <!-- w3-content defines a container for fixed size centered content,
+    and is wrapped around the whole page content, except for the footer in this example -->
+
+    <div class="container justify-content">
+      <div class="w3-content" style="max-width:1250px">
+        {% block body %}{% endblock %}
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+      {% block footer %}
+        {% include 'footer/footer.html.twig' %}
+      {% endblock %}
+
+      <!-- JavaScript files-->
+      {% block javascripts %}
+        <script src="{{ asset('js/script.js') }}"></script>
+      {% endblock %}
+  </body>
+</html>

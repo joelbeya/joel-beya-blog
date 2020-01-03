@@ -1,0 +1,29 @@
+doctrine:
+    dbal:
+        # driver: pdo_sqlite
+        # charset: UTF8
+        # path: '%kernel.project_dir%/app/sqlite.db'
+        url: '%env(resolve:DATABASE_URL)%'
+        # # configure these for your database server
+        # # use postgresql for PostgreSQL
+        # # use sqlite for SQLite
+        # driver: 'sqlite'
+        # server_version: '3.28'
+        #
+        # # only needed for MySQL
+        # charset: utf8
+        # default_table_options:
+        #     charset: utf8
+        #     collate: utf8_unicode_ci
+
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
