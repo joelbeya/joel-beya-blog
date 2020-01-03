@@ -11,11 +11,7 @@ $ cd joel-beya-blog/
 ```
 
 ``` bash
-$ composer install
-```
-
-``` bash
-$ composer update
+$ composer install && composer update
 ```
 
 ``` bash
