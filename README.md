@@ -94,6 +94,8 @@ Page par défault (Accueil)
 
 + Sur la barre de tâche, le logo en bleu **Beya N. Joel's blog** ramène toujours à l'acceuil
 
++ Recherche n'importe quel article se trouvant sur notre base de données, sinon redirection sur la page d'accueil
+
 + 3 articles par page (Trie par date de publication décroissante) avec une pagination pour pouvoir plus d'articles
 
 ### Rechercher un article (Par son titre)
