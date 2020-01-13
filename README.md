@@ -165,6 +165,10 @@ FOSUserBundle
 
 https://github.com/FriendsOfSymfony/FOSUserBundle
 
+## Test
+
++ Test unitaires sur le CRUD des articles du site
+
 ## CSS
 
 Bootstrap & W3Css
@@ -209,3 +213,4 @@ Pour la gestion des articles
 
 + Une gestion avancée des images, avec dépôt des images sur un site de stockage par exemple.
 
++ Tests fonctionnels assez fastidieux
